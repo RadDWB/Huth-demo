@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partyservice Huth Dortmund | Catering, Buffets & Grillfeste</title>
+  <meta name="description" content="Moderner Demo-Entwurf für Partyservice Huth aus Dortmund-Hörde: Catering, Buffets, Grillfeste und Fleischerei-Spezialitäten mit klarer Anfrageführung.">
+
+  <style>
+    :root {
+      --red: #7a1f1f;
+      --red-dark: #501313;
+      --red-soft: #a83232;
+      --gold: #c79a3b;
+      --cream: #faf4ea;
+      --cream-2: #fffaf2;
+      --ink: #1f1b18;
+      --muted: #70665f;
+      --line: rgba(31,27,24,.13);
+      --card: #ffffff;
+      --shadow: 0 22px 70px rgba(40, 22, 12, .12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .topbar {
+      background: var(--red-dark);
+      color: white;
+      font-size: .95rem;
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: .65rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .topbar a { text-decoration: none; font-weight: 800; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,244,234,.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: .9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--red), var(--red-soft));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      box-shadow: 0 12px 30px rgba(122,31,31,.24);
+    }
+
+    .brand strong { display: block; font-size: 1.05rem; line-height: 1.1; }
+    .brand span span { display: block; color: var(--muted); font-size: .85rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: .65rem .9rem;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover { background: rgba(122,31,31,.08); }
+    .nav-links .nav-cta { background: var(--red); color: white; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(199,154,59,.32), transparent 28%),
+        linear-gradient(135deg, #2b1712 0%, #641717 48%, #8d2720 100%);
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.38), rgba(0,0,0,.05)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(4rem, 8vw, 7rem) 1.25rem;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: #ffe3a3;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .85rem;
+      margin: 0 0 1rem;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: .92;
+      letter-spacing: -.05em;
+      margin: 0;
+      max-width: 830px;
+    }
+
+    .hero .lead {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: rgba(255,255,255,.88);
+      max-width: 690px;
+      margin: 1.25rem 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border: 0;
+      border-radius: 999px;
+      padding: .95rem 1.25rem;
+      font-weight: 950;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #271806;
+      box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    }
+
+    .btn-secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.12);
+    }
+
+    .btn-dark { background: var(--red); color: white; }
+    .btn-light { background: white; color: var(--red); }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 2rem;
+      padding: 0;
+      list-style: none;
+      max-width: 720px;
+    }
+
+    .trust li {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 18px;
+      padding: .8rem .9rem;
+      font-weight: 800;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 34px;
+      padding: 1.25rem;
+      box-shadow: 0 30px 90px rgba(0,0,0,.28);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card-plate {
+      min-height: 430px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 30% 28%, #fff3cf 0 0.6rem, transparent .65rem),
+        radial-gradient(circle at 68% 35%, #f3c05b 0 1rem, transparent 1.05rem),
+        radial-gradient(circle at 52% 62%, #f9e0a4 0 .75rem, transparent .8rem),
+        radial-gradient(circle at 50% 52%, #f8f0e6 0 32%, transparent 33%),
+        linear-gradient(135deg, #3a2118, #1b0f0c);
+      display: grid;
+      align-content: end;
+      padding: 1.2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card-plate::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 40% 35%, #c95033 0 18%, transparent 19%),
+        radial-gradient(circle at 62% 45%, #ecd18b 0 12%, transparent 13%),
+        radial-gradient(circle at 45% 64%, #9b2e22 0 18%, transparent 19%),
+        #fff8eb;
+      left: 50%;
+      top: 44%;
+      transform: translate(-50%, -50%);
+      box-shadow: inset 0 0 0 18px #f4eadb, 0 24px 60px rgba(0,0,0,.32);
+    }
+
+    .hero-card-plate::after {
+      content: "";
+      position: absolute;
+      inset: auto 1.2rem 1.2rem;
+      height: 42%;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.82));
+    }
+
+    .plate-caption { position: relative; z-index: 1; color: white; }
+    .plate-caption strong { display: block; font-size: 1.45rem; line-height: 1.1; }
+    .plate-caption span { color: rgba(255,255,255,.82); }
+
+    section { padding: clamp(3rem, 6vw, 5.5rem) 1.25rem; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    .section-head { max-width: 780px; margin-bottom: 2rem; }
+    .section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    .section-kicker {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .85rem;
+      font-weight: 950;
+      margin: 0 0 .45rem;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4.5vw, 3.7rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 1rem 0 0;
+    }
+
+    .occasion-grid,
+    .buffet-grid,
+    .steps-grid { display: grid; gap: 1.1rem; }
+
+    .occasion-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+    .occasion-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.05rem;
+      box-shadow: 0 14px 40px rgba(40,22,12,.07);
+      min-height: 150px;
+    }
+
+    .occasion-card .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: rgba(122,31,31,.09);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      margin-bottom: .85rem;
+    }
+
+    .occasion-card h3 { margin: 0; font-size: 1rem; line-height: 1.15; }
+    .occasion-card p { margin: .55rem 0 0; color: var(--muted); font-size: .92rem; }
+
+    .buffet-section {
+      background: var(--cream-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .buffet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .buffet-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .buffet-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .badge {
+      align-self: flex-start;
+      background: rgba(199,154,59,.18);
+      color: #7a5412;
+      border: 1px solid rgba(199,154,59,.35);
+      border-radius: 999px;
+      padding: .28rem .65rem;
+      font-size: .78rem;
+      font-weight: 950;
+      margin-bottom: .75rem;
+    }
+
+    .buffet-card h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; }
+    .buffet-card p { color: var(--muted); margin: .7rem 0 0; }
+    .buffet-card ul { margin: 1rem 0; padding-left: 1.15rem; color: var(--ink); }
+    .buffet-card li { margin: .35rem 0; }
+
+    .price {
+      margin-top: auto;
+      padding-top: .8rem;
+      font-size: 1.7rem;
+      font-weight: 950;
+      color: var(--red);
+    }
+
+    .price span { display: block; font-size: .85rem; color: var(--muted); font-weight: 800; }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .feature-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: clamp(1.4rem, 3vw, 2rem);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      display: grid;
+      gap: .75rem;
+    }
+
+    .check-list li { display: flex; gap: .7rem; align-items: flex-start; color: var(--muted); }
+
+    .check-list li::before {
+      content: "✓";
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(122,31,31,.1);
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+    }
+
+    .steps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .step {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.35rem;
+      box-shadow: 0 14px 40px rgba(40,22,12,.06);
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--red);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 { margin: 0; }
+    .step p { color: var(--muted); margin: .55rem 0 0; }
+
+    .menu-preview { background: var(--red-dark); color: white; }
+    .menu-preview .section-kicker { color: #ffd98b; }
+    .menu-preview .section-head p { color: rgba(255,255,255,.78); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .menu-column {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      padding: 1.1rem;
+    }
+
+    .menu-column h3 { margin: 0 0 .7rem; color: #ffe6ac; }
+    .menu-column p { color: rgba(255,255,255,.78); margin: 0; }
+
+    .cta {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(199,154,59,.28), transparent 28%),
+        var(--red);
+      color: white;
+    }
+
+    .cta-card { max-width: 920px; margin: 0 auto; text-align: center; }
+    .cta h2 { color: white; }
+    .cta p { color: rgba(255,255,255,.86); font-size: 1.15rem; }
+
+    .form-card {
+      margin-top: 2rem;
+      background: white;
+      color: var(--ink);
+      border-radius: 30px;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      box-shadow: 0 26px 70px rgba(0,0,0,.2);
+      text-align: left;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+    }
+
+    label { display: grid; gap: .35rem; font-weight: 850; color: var(--ink); }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: .85rem .95rem;
+      font: inherit;
+      background: #fffdfa;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+    .form-note { color: var(--muted); font-size: .92rem; margin: .9rem 0 0; }
+
+    footer {
+      background: #18120f;
+      color: rgba(255,255,255,.8);
+      padding: 2rem 1.25rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner strong { color: white; }
+
+    .mobile-sticky {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 80;
+      display: none;
+      box-shadow: 0 18px 45px rgba(0,0,0,.24);
+    }
+
+    @media (max-width: 1050px) {
+      .hero-inner, .split { grid-template-columns: 1fr; }
+      .hero-card { max-width: 560px; }
+      .occasion-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .buffet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner { justify-content: center; text-align: center; }
+      .nav { align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero-inner { padding-top: 3.4rem; }
+      .hero h1 { font-size: clamp(2.45rem, 13vw, 4.2rem); }
+      .hero-actions .btn { width: 100%; }
+      .trust { grid-template-columns: 1fr; }
+      .hero-card-plate { min-height: 330px; }
+      .occasion-grid, .buffet-grid, .steps-grid, .menu-grid, .form-grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      .mobile-sticky { display: inline-flex; }
+      footer { padding-bottom: 5.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Demo-Entwurf: Partyservice & Fleischerei aus Dortmund-Hörde</span>
+      <a href="tel:+49231595103">Jetzt anrufen: 0231 / 595103</a>
+    </div>
+  </div>
+
+  <header>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="#">
+        <span class="brand-mark">H</span>
+        <span>
+          <strong>Partyservice Huth</strong>
+          <span>Buffets · Catering · Fleischerei</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#anlaesse">Anlässe</a>
+        <a href="#buffets">Buffets</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#speisekarte">Speisekarte</a>
+        <a class="nav-cta" href="#anfrage">Angebot anfragen</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Frisch · herzhaft · persönlich beraten</p>
+          <h1>Catering für Feiern, Firmen und Grillfeste in Dortmund.</h1>
+          <p class="lead">
+            Buffets und Fleischerei-Spezialitäten für Geburtstage, Hochzeiten, Firmenfeiern,
+            Trauerkaffee und Vereinsfeste – individuell zusammengestellt und zuverlässig geliefert.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#anfrage">Unverbindlich Angebot anfragen</a>
+            <a class="btn btn-secondary" href="#buffets">Beliebte Buffets ansehen</a>
+          </div>
+
+          <ul class="trust">
+            <li>Buffets ab 10 Personen</li>
+            <li>Kalte, warme & kalt-warme Buffets</li>
+            <li>Lieferung Montag bis Samstag</li>
+            <li>Auf Wunsch mit Geschirr & Service</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" aria-label="Buffet-Vorschau">
+          <div class="hero-card-plate">
+            <div class="plate-caption">
+              <strong>Feier geplant?</strong>
+              <span>Das passende Buffet schneller finden und direkt anfragen.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="anlaesse">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">Schneller zum passenden Angebot</p>
+          <h2>Für welchen Anlass planen Sie?</h2>
+          <p>
+            Kunden wollen nicht zuerst lange Listen lesen. Sie wollen sofort wissen, welches Buffet
+            zu ihrer Feier passt und wie sie schnell ein Angebot bekommen.
+          </p>
+        </div>
+
+        <div class="occasion-grid">
+          <article class="occasion-card">
+            <div class="icon">🎉</div>
+            <h3>Geburtstag & Familie</h3>
+            <p>Herzhafte Buffets für kleine und große Runden.</p>
+          </article>
+
+          <article class="occasion-card">
+            <div class="icon">🏢</div>
+            <h3>Firmenfeier & Büro</h3>
+            <p>Frühstück, Canapés oder Buffet für Teams.</p>
+          </article>
+
+          <article class="occasion-card">
+            <div class="icon">💍</div>
+            <h3>Hochzeit & Jubiläum</h3>
+            <p>Kalt-warme Buffets für besondere Anlässe.</p>
+          </article>
+
+          <article class="occasion-card">
+            <div class="icon">☕</div>
+            <h3>Trauerkaffee</h3>
+            <p>Verlässlich, diskret und passend geplant.</p>
+          </article>
+
+          <article class="occasion-card">
+            <div class="icon">🔥</div>
+            <h3>Grillfest</h3>
+            <p>Fleisch, Würstchen, Salate und Beilagen.</p>
+          </article>
+
+          <article class="occasion-card">
+            <div class="icon">⚽</div>
+            <h3>Verein & Nachbarschaft</h3>
+            <p>Robuste Klassiker für viele Gäste.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="buffets" class="buffet-section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Beliebte Buffetvorschläge</p>
+          <h2>Aus der Speisekarte wird eine Verkaufsseite.</h2>
+          <p>
+            Die bestehenden Speisen bleiben erhalten – sie werden aber zuerst als klare Pakete präsentiert.
+            So entscheidet der Kunde schneller und fragt eher an.
+          </p>
+        </div>
+
+        <div class="buffet-grid">
+          <article class="buffet-card">
+            <span class="badge">Beliebt</span>
+            <h3>Klassiker-Buffet</h3>
+            <p>Ideal für Geburtstage, Familienfeiern und Vereinsabende.</p>
+            <ul>
+              <li>Party-Schnitzel & Party-Bällchen</li>
+              <li>Kalte Bratenspezialitäten</li>
+              <li>Drei Salate nach Wunsch</li>
+              <li>Baguette, Kräuterbutter & Dips</li>
+            </ul>
+            <div class="price">ab 23 € <span>pro Person</span></div>
+            <a class="btn btn-dark" href="#anfrage">Dieses Buffet anfragen</a>
+          </article>
+
+          <article class="buffet-card">
+            <span class="badge">Herzhaft</span>
+            <h3>Rustikus-Buffet</h3>
+            <p>Bodenständig, deftig und passend für gesellige Feiern.</p>
+            <ul>
+              <li>Kasseler im Blätterteig</li>
+              <li>Grillschinken & Partywürstchen</li>
+              <li>Rohwurstplatte</li>
+              <li>Salate, Brötchen & Dips</li>
+            </ul>
+            <div class="price">ab 22 € <span>pro Person</span></div>
+            <a class="btn btn-dark" href="#anfrage">Rustikus anfragen</a>
+          </article>
+
+          <article class="buffet-card">
+            <span class="badge">Besonders</span>
+            <h3>Gourmet-Buffet</h3>
+            <p>Für Hochzeiten, Jubiläen und besondere Einladungen.</p>
+            <ul>
+              <li>Fischplatte & Krabbencocktail</li>
+              <li>Schweinemedaillons</li>
+              <li>Roastbeef mit Sahnemeerrettich</li>
+              <li>Käse, Salate & Brötchen</li>
+            </ul>
+            <div class="price">ab 30 € <span>pro Person</span></div>
+            <a class="btn btn-dark" href="#anfrage">Gourmet anfragen</a>
+          </article>
+
+          <article class="buffet-card">
+            <span class="badge">Morgens</span>
+            <h3>Frühstücks-Buffet</h3>
+            <p>Für Büro, Familie, Verein oder Brunch-Runde.</p>
+            <ul>
+              <li>Wurst-, Käse- & Bratenplatten</li>
+              <li>Mettigel & garnierte Eier</li>
+              <li>Konfitüre, Honig & Butter</li>
+              <li>Brotkorb mit Brot & Brötchen</li>
+            </ul>
+            <div class="price">ab 15 € <span>pro Person</span></div>
+            <a class="btn btn-dark" href="#anfrage">Frühstück anfragen</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="section-head">
+          <p class="section-kicker">Warum der Entwurf wirtschaftlich sinnvoll ist</p>
+          <h2>Mehr Anfragen durch bessere Führung.</h2>
+          <p>
+            Der Entwurf macht nicht nur optisch mehr her. Er führt Besucher gezielt vom Anlass
+            zum passenden Buffet und weiter zur Anfrage.
+          </p>
+          <a class="btn btn-dark" href="#anfrage">Demo-Anfrage ansehen</a>
+        </div>
+
+        <div class="feature-box">
+          <h3>Was konkret verbessert wird</h3>
+          <ul class="check-list">
+            <li>Der Kunde erkennt sofort, für welche Feiern der Partyservice geeignet ist.</li>
+            <li>Beliebte Buffets erscheinen oben statt versteckt am Ende der Speisekarte.</li>
+            <li>Preise wirken klarer, weil sie in Paketen erklärt werden.</li>
+            <li>Mobile Besucher bekommen schnelle Kontaktmöglichkeiten.</li>
+            <li>Das Fleischerei-Handwerk wird als Vertrauensvorteil sichtbar.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf" class="buffet-section">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">Einfacher Ablauf</p>
+          <h2>In drei Schritten zum passenden Buffet.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3>Anlass nennen</h3>
+            <p>Datum, Personenzahl und grobe Wünsche reichen für die erste Einschätzung.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3>Vorschlag erhalten</h3>
+            <p>Das Buffet wird passend zum Anlass, Budget und Geschmack zusammengestellt.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3>Feier genießen</h3>
+            <p>Auf Wunsch mit Lieferung, Geschirr, Ausstattung und Service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="speisekarte" class="menu-preview">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Vollständige Speisekarte bleibt erhalten</p>
+          <h2>Alle Speisen übersichtlich sortiert.</h2>
+          <p>
+            Die lange Speisekarte wird nicht gelöscht. Sie wird in klare Bereiche gegliedert,
+            damit Kunden schneller finden, was sie brauchen.
+          </p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-column">
+            <h3>Frühstück & Empfang</h3>
+            <p>Canapés, belegte Brötchen, Frühstücksbuffet, Sektempfang und kalte Platten.</p>
+          </article>
+
+          <article class="menu-column">
+            <h3>Warme Speisen</h3>
+            <p>Braten, Geschnetzeltes, Suppen, Eintöpfe, Gratins und klassische Beilagen.</p>
+          </article>
+
+          <article class="menu-column">
+            <h3>Buffets & Desserts</h3>
+            <p>Standard-Buffet, Rustikus-Buffet, Gourmet-Buffet, Salate, Fisch und Desserts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="anfrage" class="cta">
+      <div class="wrap">
+        <div class="cta-card">
+          <p class="section-kicker">Unverbindliche Anfrage</p>
+          <h2>Planen Sie eine Feier?</h2>
+          <p>
+            Nennen Sie Anlass, Datum und Personenzahl. Der nächste Schritt wäre ein technisch sauber angebundenes Formular.
+          </p>
+
+          <form class="form-card" action="#" method="post">
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Ihr Name">
+              </label>
+
+              <label>
+                Telefon
+                <input type="tel" name="telefon" placeholder="Ihre Telefonnummer">
+              </label>
+
+              <label>
+                E-Mail
+                <input type="email" name="email" placeholder="Ihre E-Mail-Adresse">
+              </label>
+
+              <label>
+                Datum der Feier
+                <input type="date" name="datum">
+              </label>
+
+              <label>
+                Personenzahl
+                <input type="number" name="personen" min="1" placeholder="z. B. 30">
+              </label>
+
+              <label>
+                Anlass
+                <select name="anlass">
+                  <option>Bitte auswählen</option>
+                  <option>Geburtstag / Familienfeier</option>
+                  <option>Firmenfeier</option>
+                  <option>Hochzeit / Jubiläum</option>
+                  <option>Trauerkaffee</option>
+                  <option>Grillfest</option>
+                  <option>Vereinsfeier</option>
+                  <option>Sonstiges</option>
+                </select>
+              </label>
+
+              <label class="full">
+                Nachricht
+                <textarea name="nachricht" placeholder="Was wünschen Sie sich? Kaltes Buffet, warmes Buffet, Frühstück, Grillfest oder persönliche Beratung?"></textarea>
+              </label>
+
+              <div class="full">
+                <button class="btn btn-dark" type="submit">Anfrage unverbindlich senden</button>
+                <p class="form-note">
+                  Demo-Formular für den Entwurf. Im echten Projekt wird dieses Formular technisch sauber angebunden.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Partyservice Huth</strong><br>
+        Dortmund-Hörde · Buffets · Catering · Fleischerei
+      </div>
+      <div>
+        <a href="tel:+49231595103">0231 / 595103</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary mobile-sticky" href="#anfrage">Angebot anfragen</a>
+</body>
+</html>
